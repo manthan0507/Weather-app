@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/weather.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <div class="main-content">
+    {{>header}}
+    <h2>Welcome To {{title}} Page</h2>
+    <p>Use this side to check you weather info.</p>
+    <form>
+        <input type="text" name="location" id="location" placeholder="Location">
+        <button>Search</button>
+    </form>
+    <p id="message-1"></p>
+    <p id="message-2"></p>
+    <div id="weather-icon"></div>
+    
+    </div>
+    {{>footer}}
+</body>
+
+<script src="js/client.js"></script>
+
+</html>
