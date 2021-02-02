@@ -21,20 +21,20 @@ app.use(express.static(publicDirPath));
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather',
-        name: 'max'
+        name: 'Manthan Panchal'
     });
 });
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        name: 'max',
+        name: 'Manthan Panchal',
         title: 'Help'
     });
 });
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        name: 'max',
+        name: 'Manthan Panchal',
         title: 'About'
     });
 });
@@ -67,7 +67,7 @@ app.get('/weather', (req, res) => {
 
 app.get('/help/*', (req, res) => {
     res.render('error', {
-        name: 'max',
+        name: 'Manthan Panchal',
         title: 'Error',
         errorMessage: 'Help artical Not found'
     });
@@ -76,7 +76,7 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
     res.render('error', {
         title: 'Error',
-        name: 'max',
+        name: 'Manthan Panchal',
         errorMessage: 'Page Not found'
     });
 });
