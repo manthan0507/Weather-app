@@ -3,7 +3,7 @@ const express = require('express');
 const hbs = require('hbs');
 const geocode = require('./utils/geocode.js');
 const forecast = require('./utils/forecast.js');
-
+const port = process.env.PORT || 3000;
 const app = express();
 
 // Directory Path
@@ -80,6 +80,6 @@ app.get('*', (req, res) => {
         errorMessage: 'Page Not found'
     });
 });
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Server Started......", "Listen on port 3000");
 });
