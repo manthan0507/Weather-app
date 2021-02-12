@@ -57,4 +57,10 @@ button {
 .form-location {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form-location #currentLocation,
+.form-location form {
+    margin: 10px 0;
 }
