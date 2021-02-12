@@ -40,28 +40,36 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
-    if (!req.query.address) {
+    if (!req.query.address && !(req.query.longitude && req.query.latitude)) {
         return res.send({
             error: "You must provide address term"
         });
     }
-
-    geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
-        if (error) return res.send({ error });
-        // console.log(latitude, longitude)
-        forecast(latitude, longitude, (error, forecastdata) => {
+    if (req.query.address) {
+        geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
             if (error) return res.send({ error });
-            res.send({
-                location,
-                forecast: forecastdata,
-                address: req.query.address
+            // console.log(latitude, longitude)
+            forecast(latitude, longitude, (error, forecastdata) => {
+                if (error) return res.send({ error });
+                res.send({
+                    location,
+                    forecast: forecastdata,
+                    address: req.query.address
+                });
+
+                // console.log('location :' + location);
+                // console.log(forecastdata);
             });
 
-            // console.log('location :' + location);
-            // console.log(forecastdata);
         });
-
-    })
+    } else {
+        forecast(req.query.latitude, req.query.longitude, (error, forecastdata) => {
+            if (error) return res.send({ error });
+            res.send({
+                forecast: forecastdata
+            });
+        });
+    }
 
 });
 

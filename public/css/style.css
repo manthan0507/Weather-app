@@ -53,3 +53,8 @@ button {
     background-color: #bbbbbb;
     padding: 8px;
 }
+
+.form-location {
+    display: flex;
+    justify-content: space-between;
+}

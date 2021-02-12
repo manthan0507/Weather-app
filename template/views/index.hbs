@@ -14,10 +14,13 @@
     {{>header}}
     <h2>Welcome To {{title}} Page</h2>
     <p>Use this side to check you weather info.</p>
+    <div class="form-location">
     <form>
         <input type="text" name="location" id="location" placeholder="Location">
         <button>Search</button>
     </form>
+    <button id="currentLocation">Get Your Location</button>
+    </div>
     <p id="message-1"></p>
     <p id="message-2"></p>
     <div id="weather-icon"></div>
